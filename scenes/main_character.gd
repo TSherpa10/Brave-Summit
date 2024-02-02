@@ -1,10 +1,10 @@
 extends CharacterBody2D
 
 var SPEED_CAP = 1
-const SPEED = 250.0
-const JUMP_VELOCITY = -150.0
+const SPEED = 400.0
+const JUMP_VELOCITY = -200.0
 const MAX_JUMP_CHARGE_TIME = 1.0  # Maximum time in seconds for charging the jump
-const JUMP_FORCE_INCREMENT = -300.0  # Additional jump force added per second of charge
+const JUMP_FORCE_INCREMENT = -450.0  # Additional jump force added per second of charge
 
 @onready var sprite_2d = $AnimatedSprite2D
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -39,13 +39,13 @@ func _physics_process(delta):
 	var direction = Input.get_axis("left", "right")
 	if direction:
 		if is_on_floor():
-			SPEED_CAP = 0.2
+			SPEED_CAP = 0.4
 		else:
 			SPEED_CAP = 1
 		velocity.x = direction * SPEED * SPEED_CAP
 		sprite_2d.flip_h = direction < 0
 	else:
-		velocity.x = move_toward(velocity.x, 0, 15)
+		velocity.x = move_toward(velocity.x, 0, 30)
 
 	move_and_slide()
 

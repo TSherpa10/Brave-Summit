@@ -91,7 +91,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 7.0
+"speed": 4.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -130,20 +130,20 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vwud2"]
-radius = 11.0
-height = 48.0
+radius = 23.0
+height = 92.0
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 script = ExtResource("1_gbt6h")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(11.5, 11)
-scale = Vector2(1.71875, 1.6875)
+position = Vector2(33.5, -12)
+scale = Vector2(3.09375, 3.125)
 sprite_frames = SubResource("SpriteFrames_1g6ni")
 autoplay = "default"
-frame_progress = 0.566068
+frame_progress = 0.596656
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(10, 15)
+position = Vector2(31, -7)
 shape = SubResource("CapsuleShape2D_vwud2")
