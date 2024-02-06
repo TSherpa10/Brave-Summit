@@ -1,11 +1,10 @@
 extends CharacterBody2D
 
-const SPEED = 400.0
+const SPEED = 450.0
 const JUMP_VELOCITY = -200.0
 const MAX_JUMP_CHARGE_TIME = 1.0  # Maximum time in seconds for charging the jump
 const JUMP_FORCE_INCREMENT = -450.0  # Additional jump force added per second of charge
-const BOUNCE_FACTOR = 0.7  # Adjust this value for the desired bounce effect
-const DEFAULT_PHYSICS_LAYER = 1 << 0  # Bit flag for physics layer 0
+const BOUNCE_FACTOR = 0.6  # Adjust this value for the desired bounce effect
 var SPEED_CAP = 1
 
 @onready var sprite_2d = $AnimatedSprite2D
@@ -13,7 +12,17 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var jump_charge_duration = 0.0
 var is_charging_jump = false
 var incapacitated = false  # New variable to track incapacitation state
-	
+var bouncing = false
+var bounce_velocity = -100
+@onready var collidable = get_node("../Collidable")
+
+func _ready():
+	# Connect the area_entered signal from each Area2D to this character script.
+	for area in collidable.get_children():
+		if area is Area2D:
+			print("hardyharhar")
+			area.connect("body_entered", Callable(self, "_on_body_entered"))
+
 func _physics_process(delta):
 	# Apply gravity
 	if not is_on_floor():
@@ -38,6 +47,11 @@ func _physics_process(delta):
 		is_charging_jump = false
 
 	# Handle movement and animation if not incapacitated.
+	
+	if bouncing:
+		velocity.x = bounce_velocity
+		bouncing = false
+		
 	if not incapacitated:
 		var direction = Input.get_axis("left", "right")
 		if direction:
@@ -57,11 +71,10 @@ func _physics_process(delta):
 		sprite_2d.animation = "default"
 
 	move_and_slide()
-
-	if not incapacitated:
-		for index in range(get_slide_collision_count()):
-			var collider = get_slide_collision(index).collider
-			if collider is TileMap:
-				velocity.x = -velocity.x * BOUNCE_FACTOR
-				incapacitated = true
-				break
+	
+func _on_body_entered(body):
+	print("velocity right now", velocity.x)
+	if body == self and not is_on_floor() and abs(velocity.x) > 1:
+		bounce_velocity = -velocity.x * BOUNCE_FACTOR
+		incapacitated = true
+		bouncing = true

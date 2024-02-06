@@ -130,7 +130,7 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vwud2"]
-radius = 23.0
+radius = 11.0
 height = 92.0
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
