@@ -54,13 +54,13 @@ func _physics_process(delta):
 		
 	if not incapacitated:
 		var direction = Input.get_axis("left", "right")
-		if direction:
+		if direction: sprite_2d.flip_h = direction < 0
+		if direction and not Input.is_action_pressed("jump"):
 			if is_on_floor():
 				SPEED_CAP = 0.4
 			else:
 				SPEED_CAP = 1.0
 			velocity.x = direction * SPEED * SPEED_CAP
-			sprite_2d.flip_h = direction < 0
 		else:
 			velocity.x = move_toward(velocity.x, 0, 30)
 	
@@ -73,7 +73,7 @@ func _physics_process(delta):
 	move_and_slide()
 	
 func _on_body_entered(body):
-	print("velocity right now", velocity.x)
+	#print("velocity right now", velocity.x)
 	if body == self and not is_on_floor() and abs(velocity.x) > 1:
 		bounce_velocity = -velocity.x * BOUNCE_FACTOR
 		incapacitated = true
