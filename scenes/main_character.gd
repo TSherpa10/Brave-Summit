@@ -42,7 +42,7 @@ func _physics_process(delta):
 		else:
 			jump_charge_duration = min(jump_charge_duration + delta, MAX_JUMP_CHARGE_TIME)
 
-	if is_charging_jump and not Input.is_action_pressed("jump"):
+	if is_charging_jump and not Input.is_action_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY + JUMP_FORCE_INCREMENT * jump_charge_duration
 		is_charging_jump = false
 
