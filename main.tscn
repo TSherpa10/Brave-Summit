@@ -498,86 +498,92 @@ layer_0/tile_data = PackedInt32Array(589824, 524288, 5, 655360, 524288, 5, 58982
 
 [node name="Collidable" type="Node" parent="."]
 
-[node name="CollisionEdges" type="Area2D" parent="Collidable"]
+[node name="CollisionEdges" type="Area2D" parent="Collidable" groups=["Collidable"]]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Collidable/CollisionEdges"]
 position = Vector2(0, 7)
 build_mode = 1
-polygon = PackedVector2Array(-32, 151, 220, 149, 221, 287, 67, 288, 67, 470, 172, 470, 168, 574, 442, 577, 444, 421, 646, 422, 647, 577, 1123, 580, 1123, 267, 1437, 267, 1436, -408, 1498, -410, 1497, -645, 1340, -644, 1340, -746, 976, -744, 976, -879, 1547, -874, 1550, -647, 1555, 684, -327, 699, -330, -1390, -41, -1389)
+polygon = PackedVector2Array(-27, 156, 220, 149, 221, 287, 67, 288, 67, 470, 172, 470, 168, 574, 442, 577, 444, 421, 646, 422, 647, 577, 1123, 580, 1123, 267, 1437, 267, 1436, -408, 1498, -410, 1497, -645, 1340, -644, 1340, -746, 976, -744, 976, -879, 1547, -874, 1550, -647, 1555, 684, -327, 699, -330, -1390, -27, -1397)
 
-[node name="CollisionMiddle1_1" type="Area2D" parent="Collidable"]
+[node name="CollisionMiddle1_1" type="Area2D" parent="Collidable" groups=["Collidable"]]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Collidable/CollisionMiddle1_1"]
 position = Vector2(418, 363)
 polygon = PackedVector2Array(402, 12, 402, 102, 634, 103, 632, 12)
 
-[node name="CollisionMiddle1_2" type="Area2D" parent="Collidable"]
+[node name="CollisionMiddle1_2" type="Area2D" parent="Collidable" groups=["Collidable"]]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Collidable/CollisionMiddle1_2"]
 polygon = PackedVector2Array(819, 113, 821, 202, 999, 202, 999, 116)
 
-[node name="CollisionMiddle1_8" type="Area2D" parent="Collidable"]
+[node name="CollisionMiddle1_8" type="Area2D" parent="Collidable" groups=["Collidable"]]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Collidable/CollisionMiddle1_8"]
 position = Vector2(-361, -622)
 polygon = PackedVector2Array(814, 116, 814, 200, 941, 199, 941, 114)
 
-[node name="CollisionMiddle1_12" type="Area2D" parent="Collidable"]
+[node name="CollisionMiddle1_12" type="Area2D" parent="Collidable" groups=["Collidable"]]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Collidable/CollisionMiddle1_12"]
 position = Vector2(-671, -1143)
-polygon = PackedVector2Array(865, 113, 864, 168, 820, 166, 820, 196, 866, 196, 866, 324, 762, 326, 762, 352, 916, 352, 916, 407, 1043, 406, 1043, 352, 1150, 352, 1151, 165, 968, 166, 970, 220, 942, 219, 941, 114)
+polygon = PackedVector2Array(862, 112, 864, 168, 820, 166, 820, 196, 862, 196, 864, 325, 762, 320, 762, 342, 916, 352, 916, 407, 1043, 406, 1043, 352, 1150, 352, 1151, 165, 968, 166, 965, 221, 942, 219, 942, 116)
 
-[node name="CollisionMiddle1_3" type="Area2D" parent="Collidable"]
+[node name="CollisionMiddle1_3" type="Area2D" parent="Collidable" groups=["Collidable"]]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Collidable/CollisionMiddle1_3"]
 position = Vector2(-417, -102)
 polygon = PackedVector2Array(813, 111, 814, 207, 1006, 207, 1005, 113)
 
-[node name="CollisionMiddle1_4" type="Area2D" parent="Collidable"]
+[node name="CollisionMiddle1_4" type="Area2D" parent="Collidable" groups=["Collidable"]]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Collidable/CollisionMiddle1_4"]
 position = Vector2(-422, -405)
 polygon = PackedVector2Array(829, 153, 829, 184, 1000, 185, 1000, 152)
 
-[node name="CollisionMiddle1_10" type="Area2D" parent="Collidable"]
+[node name="CollisionMiddle1_10" type="Area2D" parent="Collidable" groups=["Collidable"]]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Collidable/CollisionMiddle1_10"]
 position = Vector2(103, -717)
 polygon = PackedVector2Array(818, 154, 819, 185, 1102, 182, 1102, 154, 1049, 152, 1049, 102, 977, 102, 976, 152)
 
-[node name="CollisionMiddle1_5" type="Area2D" parent="Collidable"]
+[node name="CollisionMiddle1_5" type="Area2D" parent="Collidable" groups=["Collidable"]]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Collidable/CollisionMiddle1_5"]
 position = Vector2(-187, -406)
 polygon = PackedVector2Array(851, 153, 851, 185, 975, 185, 975, 153)
 
-[node name="CollisionMiddle1_6" type="Area2D" parent="Collidable"]
+[node name="CollisionMiddle1_6" type="Area2D" parent="Collidable" groups=["Collidable"]]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Collidable/CollisionMiddle1_6"]
 position = Vector2(72, -354)
 polygon = PackedVector2Array(854, 154, 854, 168, 897, 168, 898, 346, 1033, 344, 1032, 154)
 
-[node name="CollisionMiddle1_9" type="Area2D" parent="Collidable"]
+[node name="CollisionMiddle1_9" type="Area2D" parent="Collidable" groups=["Collidable"]]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Collidable/CollisionMiddle1_9"]
 position = Vector2(-188, -820)
 polygon = PackedVector2Array(854, 154, 853, 291, 907, 290, 906, 346, 1028, 345, 1028, 154)
 
-[node name="CollisionMiddle1_7" type="Area2D" parent="Collidable"]
+[node name="CollisionMiddle1_7" type="Area2D" parent="Collidable" groups=["Collidable"]]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Collidable/CollisionMiddle1_7"]
 position = Vector2(283, -227)
 polygon = PackedVector2Array(971, -23, 971, -122, 896, -121, 895, 323, 1033, 322, 1029, -22)
 
-[node name="CollisionMiddle1_11" type="Area2D" parent="Collidable"]
+[node name="CollisionMiddle1_11" type="Area2D" parent="Collidable" groups=["Collidable"]]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Collidable/CollisionMiddle1_11"]
 position = Vector2(-660, -657)
 polygon = PackedVector2Array(928, 153, 929, 94, 878, 93, 880, -8, 754, -11, 753, 145, 699, 145, 698, 491, 751, 488, 750, 545, 803, 545, 803, 597, 929, 596, 929, 517, 880, 516, 878, 275, 1032, 275, 1034, 152)
 
+[node name="SlideSurfaces" type="Node" parent="."]
+
+[node name="SlidingSurface" type="Area2D" parent="SlideSurfaces"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SlideSurfaces/SlidingSurface"]
+
 [node name="CharacterBody2D" parent="." instance=ExtResource("3_q30pm")]
-position = Vector2(122, -709)
+position = Vector2(72, 430)
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 position = Vector2(31, -3)

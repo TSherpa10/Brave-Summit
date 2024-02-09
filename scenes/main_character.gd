@@ -13,15 +13,21 @@ var jump_charge_duration = 0.0
 var is_charging_jump = false
 var incapacitated = false  # New variable to track incapacitation state
 var bouncing = false
+var sliding = false
 var bounce_velocity = -100
-@onready var collidable = get_node("../Collidable")
+var slide_velocity = Vector2(100, 100)
+@onready var collidable = get_node("/root/Main/Collidable")
+@onready var slidesurface = get_node("/root/Main/SlideSurfaces")
 
 func _ready():
 	# Connect the area_entered signal from each Area2D to this character script.
 	for area in collidable.get_children():
 		if area is Area2D:
-			print("hardyharhar")
-			area.connect("body_entered", Callable(self, "_on_body_entered"))
+			area.connect("area_entered", Callable(self, "_on_area_entered"))
+	for surface in slidesurface.get_children():
+		if surface is Area2D:
+			surface.connect("area_entered", Callable(self, "_on_area_entered"))
+			surface.connect("area_exited", Callable(self, "_on_area_exited"))
 
 func _physics_process(delta):
 	# Apply gravity
@@ -52,6 +58,10 @@ func _physics_process(delta):
 		velocity.x = bounce_velocity
 		bouncing = false
 		
+	elif sliding:
+		velocity.x = slide_velocity.x
+		velocity.y = slide_velocity.y
+		
 	if not incapacitated:
 		var direction = Input.get_axis("left", "right")
 		if direction: sprite_2d.flip_h = direction < 0
@@ -62,19 +72,29 @@ func _physics_process(delta):
 				SPEED_CAP = 1.0
 			velocity.x = direction * SPEED * SPEED_CAP
 		else:
-			velocity.x = move_toward(velocity.x, 0, 30)
+			velocity.x = move_toward(velocity.x, 0, 100)
 	
 	# Update animation.
 	if velocity.x > 1 || velocity.x < -1:
 		sprite_2d.animation = "running"
 	else:
 		sprite_2d.animation = "default"
-
+	
 	move_and_slide()
 	
-func _on_body_entered(body):
-	#print("velocity right now", velocity.x)
-	if body == self and not is_on_floor() and abs(velocity.x) > 1:
+func _on_area_entered(area):
+	print("testing groups")
+	if not is_on_floor() and abs(velocity.x) > 1:
 		bounce_velocity = -velocity.x * BOUNCE_FACTOR
 		incapacitated = true
 		bouncing = true
+	elif area.is_in_group("SlidingSurface"):
+		sliding = true
+		incapacitated = true
+		
+func _on_area_exited(area):
+	if area.is_in_group("SlidingSurface"):
+		sliding = false
+		# Use create_timer to delay re-enabling movement after sliding
+		await get_tree().create_timer(0.5).timeout
+		incapacitated = false
