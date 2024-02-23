@@ -1,10 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://c0l2ao0p41nap"]
+[gd_scene load_steps=12 format=3 uid="uid://c0l2ao0p41nap"]
 
 [ext_resource type="Texture2D" uid="uid://kt6amyqg72bg" path="res://BG Image.png" id="1_772nh"]
 [ext_resource type="Texture2D" uid="uid://cxueyibgcwroj" path="res://Terrain (16x16).png" id="2_ek1oc"]
 [ext_resource type="Script" path="res://background.gd" id="2_jgr8p"]
+[ext_resource type="Texture2D" uid="uid://bduqs4t41y1du" path="res://Small Cloud 1.png" id="3_n0cl8"]
 [ext_resource type="PackedScene" uid="uid://c2ff3xn2paa4k" path="res://scenes/main_character.tscn" id="3_q30pm"]
+[ext_resource type="Texture2D" uid="uid://qj368vn8q45" path="res://Small Cloud 2.png" id="4_lpums"]
 [ext_resource type="AudioStream" uid="uid://d0foscf827gq6" path="res://Overworld Theme.wav" id="5_fe2r6"]
+[ext_resource type="Texture2D" uid="uid://bmj5bg45t1w0u" path="res://Small Cloud 3.png" id="5_mffnn"]
+[ext_resource type="Texture2D" uid="uid://dmeifrwrvbpwq" path="res://Water Reflect Big 01.png" id="6_4x4qd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_76fua"]
 texture = ExtResource("2_ek1oc")
@@ -481,12 +485,57 @@ sources/0 = SubResource("TileSetAtlasSource_76fua")
 
 [node name="Background1" type="TextureRect" parent="."]
 texture_filter = 1
-offset_left = -835.0
-offset_top = -545.0
-offset_right = 2182.0
-offset_bottom = 1044.0
+offset_left = -1962.0
+offset_top = -325.0
+offset_right = 3177.0
+offset_bottom = 878.0
 texture = ExtResource("1_772nh")
 script = ExtResource("2_jgr8p")
+
+[node name="Cloud1" type="TextureRect" parent="Background1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2964.0
+offset_top = 575.0
+offset_right = -1777.0
+offset_bottom = -462.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_n0cl8")
+
+[node name="Cloud2" type="TextureRect" parent="Background1"]
+layout_mode = 0
+offset_left = 2381.0
+offset_top = 380.0
+offset_right = 2974.0
+offset_bottom = 561.0
+texture = ExtResource("4_lpums")
+
+[node name="Cloud3" type="TextureRect" parent="Background1"]
+layout_mode = 0
+offset_left = 991.0
+offset_top = 303.0
+offset_right = 2534.0
+offset_bottom = 748.0
+texture = ExtResource("5_mffnn")
+
+[node name="Cloud4" type="TextureRect" parent="Background1"]
+layout_mode = 0
+offset_left = 3125.0
+offset_top = 355.0
+offset_right = 3458.0
+offset_bottom = 449.0
+texture = ExtResource("5_mffnn")
+
+[node name="TextureRect" type="TextureRect" parent="Background1"]
+layout_mode = 0
+offset_left = 2169.0
+offset_top = 825.0
+offset_right = 3070.0
+offset_bottom = 880.0
+texture = ExtResource("6_4x4qd")
 
 [node name="MainTerrain" type="TileMap" parent="."]
 texture_filter = 1
@@ -775,7 +824,7 @@ polygon = PackedVector2Array(928, 153, 929, 94, 878, 92, 880, -8, 747, -11, 746,
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SlideSurfaces/SlidingSurface"]
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("3_q30pm")]
-position = Vector2(678, -3416)
+position = Vector2(74, 428)
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 position = Vector2(31, -3)
