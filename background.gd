@@ -12,7 +12,7 @@ func _ready():
 
 func _process(delta):
 	# Calculate the target position with the offset
-	var target_position = player.global_position + (0.95 * initial_offset)
+	var target_position = player.global_position + initial_offset
 	
 	# This will make the background follow both vertically and horizontally
 	global_position.y += (target_position.y - global_position.y) * follow_speed
