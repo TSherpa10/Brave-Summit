@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://jc6wa5o0emvy"
-path="res://.godot/imported/Small Cloud 3.png-01f3c7f48a14cd24d428e375aa8f6e4e.ctex"
+uid="uid://chjhbmjyy1iif"
+path="res://.godot/imported/Melon.png-58ba1327df7bc023d7f9ac7201644a0e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/Small Cloud 3.png"
-dest_files=["res://.godot/imported/Small Cloud 3.png-01f3c7f48a14cd24d428e375aa8f6e4e.ctex"]
+source_file="res://Melon.png"
+dest_files=["res://.godot/imported/Melon.png-58ba1327df7bc023d7f9ac7201644a0e.ctex"]
 
 [params]
 

@@ -137,6 +137,7 @@ height = 92.0
 script = ExtResource("1_gbt6h")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 1
 texture_filter = 1
 position = Vector2(33.5, -12)
 scale = Vector2(3.09375, 3.125)
