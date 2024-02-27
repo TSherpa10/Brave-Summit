@@ -220,10 +220,7 @@ size = Vector2(64, 101)
 texture_filter = 1
 scale = Vector2(2.25, 2.25)
 sprite_frames = SubResource("SpriteFrames_uk67v")
-animation = &"goal"
 autoplay = "default"
-frame = 18
-frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(5, 21.5)

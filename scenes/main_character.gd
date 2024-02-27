@@ -3,7 +3,7 @@ const SPEED = 450.0
 const JUMP_VELOCITY = -200.0
 const MAX_JUMP_CHARGE_TIME = 1.0  # Maximum time in seconds for charging the jump
 const JUMP_FORCE_INCREMENT = -450.0  # Additional jump force added per second of charge
-const BOUNCE_FACTOR = 0.6  # Adjust this value for the desired bounce effect
+const BOUNCE_FACTOR = 0.4  # Adjust this value for the desired bounce effect
 var SPEED_CAP = 1
 @onready var sprite_2d = $AnimatedSprite2D
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -23,7 +23,10 @@ func _ready():
 func _physics_process(delta):
 	# Apply gravity
 	if not is_on_floor():
-		velocity.y += gravity * delta
+		if (velocity.y > 0):
+			velocity.y += (gravity * 1.05) * delta
+		else:
+			velocity.y += gravity * delta
 	else:
 		# Reset vertical velocity when on the ground.
 		velocity.y = 0
@@ -51,7 +54,7 @@ func _physics_process(delta):
 		if direction: sprite_2d.flip_h = direction < 0
 		if direction and not Input.is_action_pressed("jump"):
 			if is_on_floor():
-				SPEED_CAP = 0.4
+				SPEED_CAP = 0.6
 			else:
 				SPEED_CAP = 1.0
 			velocity.x = direction * SPEED * SPEED_CAP

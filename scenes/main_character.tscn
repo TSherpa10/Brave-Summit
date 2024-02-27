@@ -4,6 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://mmkftegqtqpn" path="res://ChikBoy_idle.png" id="1_tu07q"]
 [ext_resource type="Texture2D" uid="uid://brqatyxtlp1ld" path="res://ChikBoy_run.png" id="3_ywyt0"]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vwud2"]
+radius = 15.0
+height = 92.0
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_dchii"]
 atlas = ExtResource("1_tu07q")
 region = Rect2(0, 0, 32, 32)
@@ -129,12 +133,12 @@ animations = [{
 "speed": 9.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vwud2"]
-radius = 11.0
-height = 92.0
-
 [node name="CharacterBody2D" type="CharacterBody2D"]
 script = ExtResource("1_gbt6h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(31, -7)
+shape = SubResource("CapsuleShape2D_vwud2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 z_index = 1
@@ -144,7 +148,3 @@ scale = Vector2(3.09375, 3.125)
 sprite_frames = SubResource("SpriteFrames_1g6ni")
 autoplay = "default"
 frame_progress = 0.596656
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(31, -7)
-shape = SubResource("CapsuleShape2D_vwud2")
