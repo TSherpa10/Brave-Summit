@@ -1,8 +1,8 @@
 extends CharacterBody2D
 const SPEED = 450.0
 const JUMP_VELOCITY = -200.0
-const MAX_JUMP_CHARGE_TIME = 1 # Maximum time in seconds for charging the jump
-const JUMP_FORCE_INCREMENT = -450  # Additional jump force added per second of charge
+const MAX_JUMP_CHARGE_TIME = 0.8 # Maximum time in seconds for charging the jump
+const JUMP_FORCE_INCREMENT = -600  # Additional jump force added per second of charge
 const BOUNCE_FACTOR = 0.4  # Adjust this value for the desired bounce effect
 var SPEED_CAP = 1
 @onready var sprite_2d = $AnimatedSprite2D
@@ -26,7 +26,7 @@ func _physics_process(delta):
 	# Apply gravity
 	if not is_on_floor():
 		if (velocity.y > 0):
-			velocity.y += (gravity * 1.05) * delta
+			velocity.y += (gravity * 1.5) * delta
 		else:
 			velocity.y += gravity * delta
 	else:
