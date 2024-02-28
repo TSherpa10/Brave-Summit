@@ -1,8 +1,8 @@
 extends CharacterBody2D
 const SPEED = 450.0
 const JUMP_VELOCITY = -200.0
-const MAX_JUMP_CHARGE_TIME = 1.0  # Maximum time in seconds for charging the jump
-const JUMP_FORCE_INCREMENT = -450.0  # Additional jump force added per second of charge
+const MAX_JUMP_CHARGE_TIME = 1 # Maximum time in seconds for charging the jump
+const JUMP_FORCE_INCREMENT = -450  # Additional jump force added per second of charge
 const BOUNCE_FACTOR = 0.4  # Adjust this value for the desired bounce effect
 var SPEED_CAP = 1
 @onready var sprite_2d = $AnimatedSprite2D
@@ -13,12 +13,14 @@ var incapacitated = false  # New variable to track incapacitation state
 var bouncing = false
 var bounce_velocity = -100
 @onready var collidable = get_node("../Collidable")
+@onready var charge_bar = %ChargeBar
 
 func _ready():
 	# Connect the area_entered signal from each Area2D to this character script.
 	for area in collidable.get_children():
 		if area is Area2D:
 			area.connect("body_entered", Callable(self, "_on_body_entered"))
+	charge_bar.visible = false
 
 func _physics_process(delta):
 	# Apply gravity
@@ -35,11 +37,20 @@ func _physics_process(delta):
 			incapacitated = false
 	# Handle jump charging
 	if not incapacitated and Input.is_action_pressed("jump") and is_on_floor():
+		# play charge jump animation.
+		charge_bar.visible = true
+		charge_bar.play("charge_animation")
 		if not is_charging_jump:
 			is_charging_jump = true
 			jump_charge_duration = 0.0
 		else:
 			jump_charge_duration = min(jump_charge_duration + delta, MAX_JUMP_CHARGE_TIME)
+	else: 
+		# if not pressing jump, or incapacitated, or not on floor, stop animation and reset frames.
+		charge_bar.stop()
+		charge_bar.visible = false
+		charge_bar.frame = 0
+		
 	if is_charging_jump and not Input.is_action_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY + JUMP_FORCE_INCREMENT * jump_charge_duration
 		is_charging_jump = false
@@ -52,7 +63,7 @@ func _physics_process(delta):
 	if not incapacitated:
 		var direction = Input.get_axis("left", "right")
 		if direction: sprite_2d.flip_h = direction < 0
-		if direction and not Input.is_action_pressed("jump"):
+		if direction and (not Input.is_action_pressed("jump") or (Input.is_action_pressed("jump") and not is_on_floor())):
 			if is_on_floor():
 				SPEED_CAP = 0.6
 			else:
@@ -74,3 +85,8 @@ func _on_body_entered(body):
 		bounce_velocity = -velocity.x * BOUNCE_FACTOR
 		incapacitated = true
 		bouncing = true
+
+
+func _on_charge_bar_animation_finished():
+	# when the animation finishes, pause at last frame.
+	charge_bar.frame = 10

@@ -1,8 +1,9 @@
-[gd_scene load_steps=22 format=3 uid="uid://c2ff3xn2paa4k"]
+[gd_scene load_steps=39 format=3 uid="uid://c2ff3xn2paa4k"]
 
 [ext_resource type="Script" path="res://scenes/main_character.gd" id="1_gbt6h"]
 [ext_resource type="Texture2D" uid="uid://mmkftegqtqpn" path="res://ChikBoy_idle.png" id="1_tu07q"]
 [ext_resource type="Texture2D" uid="uid://brqatyxtlp1ld" path="res://ChikBoy_run.png" id="3_ywyt0"]
+[ext_resource type="Texture2D" uid="uid://ctr3kb6iyyr4u" path="res://pixel_assets/charge_bar.png" id="4_q812l"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vwud2"]
 radius = 15.0
@@ -133,6 +134,119 @@ animations = [{
 "speed": 9.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_iqj3p"]
+atlas = ExtResource("4_q812l")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tlhmr"]
+atlas = ExtResource("4_q812l")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i8unl"]
+atlas = ExtResource("4_q812l")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jeyn2"]
+atlas = ExtResource("4_q812l")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cqrqe"]
+atlas = ExtResource("4_q812l")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kjpoc"]
+atlas = ExtResource("4_q812l")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_clyu6"]
+atlas = ExtResource("4_q812l")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5nns1"]
+atlas = ExtResource("4_q812l")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lh046"]
+atlas = ExtResource("4_q812l")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0307d"]
+atlas = ExtResource("4_q812l")
+region = Rect2(320, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yhctl"]
+atlas = ExtResource("4_q812l")
+region = Rect2(352, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0fbhf"]
+atlas = ExtResource("4_q812l")
+region = Rect2(384, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xpys6"]
+atlas = ExtResource("4_q812l")
+region = Rect2(416, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ltrhp"]
+atlas = ExtResource("4_q812l")
+region = Rect2(448, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ay5r"]
+atlas = ExtResource("4_q812l")
+region = Rect2(480, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_71oqs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iqj3p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tlhmr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i8unl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jeyn2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cqrqe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kjpoc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_clyu6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5nns1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lh046")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0307d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yhctl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0fbhf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xpys6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ltrhp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ay5r")
+}],
+"loop": false,
+"name": &"charge_animation",
+"speed": 9.0
+}]
+
 [node name="CharacterBody2D" type="CharacterBody2D"]
 script = ExtResource("1_gbt6h")
 
@@ -148,3 +262,13 @@ scale = Vector2(3.09375, 3.125)
 sprite_frames = SubResource("SpriteFrames_1g6ni")
 autoplay = "default"
 frame_progress = 0.596656
+
+[node name="ChargeBar" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+texture_filter = 1
+position = Vector2(68, -4)
+scale = Vector2(2.75, 2.75)
+sprite_frames = SubResource("SpriteFrames_71oqs")
+animation = &"charge_animation"
+
+[connection signal="animation_finished" from="ChargeBar" to="." method="_on_charge_bar_animation_finished"]
