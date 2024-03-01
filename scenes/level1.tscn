@@ -769,7 +769,7 @@ polygon = PackedVector2Array(839, 155, 838, 167, 972, 167, 971, 155)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Collidable/CollisionMiddle1_15"]
 position = Vector2(-170, -1054)
-polygon = PackedVector2Array(838, 129, 838, 177, 903, 177, 903, 129)
+polygon = PackedVector2Array(838, 129, 837, 160, 903, 161, 903, 129)
 
 [node name="CollisionMiddle1_26" type="Area2D" parent="Collidable" groups=["Collidable"]]
 
