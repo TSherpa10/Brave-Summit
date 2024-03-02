@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://ctr3kb6iyyr4u" path="res://pixel_assets/charge_bar.png" id="4_q812l"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ufilv"]
-radius = 4.66667
+radius = 5.0
 height = 29.3333
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b13xa"]

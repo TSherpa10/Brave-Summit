@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://c0l2ao0p41nap"]
+[gd_scene load_steps=53 format=3 uid="uid://c0l2ao0p41nap"]
 
 [ext_resource type="Texture2D" uid="uid://kt6amyqg72bg" path="res://BG Image.png" id="1_b58vs"]
 [ext_resource type="Script" path="res://background.gd" id="2_mruue"]
@@ -12,9 +12,11 @@
 [ext_resource type="Script" path="res://collect_melon.gd" id="10_7fln2"]
 [ext_resource type="PackedScene" uid="uid://duofhf5347ka2" path="res://scenes/goal.tscn" id="11_8fywv"]
 [ext_resource type="Script" path="res://scenes/goal.gd" id="12_82b2h"]
+[ext_resource type="PackedScene" uid="uid://s4o1mtvyi47w" path="res://scenes/gold_melon.tscn" id="13_4rjct"]
 [ext_resource type="AudioStream" uid="uid://d0foscf827gq6" path="res://Overworld Theme.wav" id="13_q3mu8"]
 [ext_resource type="Script" path="res://GameManager.gd" id="14_g2576"]
 [ext_resource type="Texture2D" uid="uid://chjhbmjyy1iif" path="res://Melon.png" id="15_6a08m"]
+[ext_resource type="Texture2D" uid="uid://c1suiaujipefc" path="res://pixel_assets/Golden Melon.png" id="15_tufh2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_76fua"]
 texture = ExtResource("7_dlqly")
@@ -597,6 +599,145 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_2rqou"]
+atlas = ExtResource("15_tufh2")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tdqed"]
+atlas = ExtResource("15_tufh2")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r6fnq"]
+atlas = ExtResource("15_tufh2")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eih5a"]
+atlas = ExtResource("15_tufh2")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3x3ri"]
+atlas = ExtResource("15_tufh2")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v6fk2"]
+atlas = ExtResource("15_tufh2")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u716v"]
+atlas = ExtResource("15_tufh2")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4iq4a"]
+atlas = ExtResource("15_tufh2")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dyvlb"]
+atlas = ExtResource("15_tufh2")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_84f2c"]
+atlas = ExtResource("15_tufh2")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tlupa"]
+atlas = ExtResource("15_tufh2")
+region = Rect2(320, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nmj7e"]
+atlas = ExtResource("15_tufh2")
+region = Rect2(352, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fha8r"]
+atlas = ExtResource("15_tufh2")
+region = Rect2(384, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_663yx"]
+atlas = ExtResource("15_tufh2")
+region = Rect2(416, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f1a3a"]
+atlas = ExtResource("15_tufh2")
+region = Rect2(448, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t4fhg"]
+atlas = ExtResource("15_tufh2")
+region = Rect2(480, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_14f12"]
+atlas = ExtResource("15_tufh2")
+region = Rect2(512, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_du1bp"]
+atlas = ExtResource("15_tufh2")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s0kui"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2rqou")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tdqed")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r6fnq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eih5a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3x3ri")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v6fk2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u716v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4iq4a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dyvlb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_84f2c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tlupa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nmj7e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fha8r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_663yx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f1a3a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t4fhg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_14f12")
+}],
+"loop": false,
+"name": &"collect",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_du1bp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
+
 [node name="Main" type="Node"]
 
 [node name="Background1" type="TextureRect" parent="."]
@@ -668,7 +809,7 @@ layer_0/tile_data = PackedInt32Array(589824, 524288, 5, 655360, 524288, 5, 58982
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Collidable/CollisionEdges"]
 position = Vector2(1, 7)
 build_mode = 1
-polygon = PackedVector2Array(-33, 5, 119, 6, 119, 59, 169, 60, 168, 108, 225, 109, 225, 290, 67, 288, 67, 470, 172, 470, 168, 574, 450, 568, 450, 422, 637, 422, 636, 576, 1123, 580, 1123, 267, 1437, 267, 1436, -408, 1490, -412, 1489, -642, 1438, -644, 1439, -1217, 1361, -1241, 1363, -1064, 1285, -1061, 1284, -1535, 973, -1528, 974, -1580, 918, -1583, 918, -1763, 1000, -1762, 1000, -1717, 1049, -1716, 1051, -1661, 1542, -1663, 1550, -647, 1555, 684, -327, 699, -330, -1390, -324, -3895, 1623, -3904, 1614, -2543, 1622, -1678, 1434, -1663, 1436, -1785, 1386, -1783, 1389, -2107, 1335, -2106, 1335, -2131, 1432, -2130, 1433, -2458, 1387, -2458, 1387, -2548, 1490, -2547, 1489, -3342, 1437, -3342, 1437, -3397, 1284, -3394, 1285, -3498, 1258, -3498, 1258, -3446, 1076, -3445, 1075, -3499, 1000, -3498, 999, -3450, 946, -3450, 946, -3399, 762, -3473, 763, -3559, 533, -3552, 533, -3419, 430, -3401, 430, -3268, 535, -3266, 535, -3089, 380, -3090, 381, -2871, 325, -2870, 324, -2813, 274, -2812, 273, -2594, 326, -2589, 326, -2482, 381, -2480, 381, -2252, 276, -2251, 277, -2189, 123, -2188, 122, -1388, -39, -1389)
+polygon = PackedVector2Array(-39, 9, 119, 6, 119, 59, 169, 60, 168, 108, 224, 110, 225, 290, 67, 288, 67, 470, 168, 470, 168, 574, 450, 568, 450, 422, 637, 422, 636, 576, 1123, 580, 1123, 267, 1437, 267, 1436, -408, 1490, -412, 1489, -642, 1438, -644, 1439, -1217, 1361, -1241, 1363, -1064, 1285, -1061, 1284, -1535, 973, -1528, 974, -1580, 918, -1583, 918, -1763, 1000, -1762, 1000, -1717, 1049, -1716, 1051, -1661, 1542, -1663, 1550, -647, 1555, 684, -327, 699, -330, -1390, -324, -3895, 1623, -3904, 1614, -2543, 1622, -1678, 1434, -1663, 1436, -1785, 1386, -1783, 1389, -2107, 1335, -2106, 1335, -2131, 1437, -2131, 1437, -2460, 1337, -2459, 1337, -2595, 1490, -2594, 1489, -3342, 1437, -3342, 1437, -3397, 1284, -3394, 1285, -3498, 1258, -3498, 1258, -3446, 1076, -3445, 1075, -3499, 1000, -3498, 999, -3450, 946, -3450, 946, -3399, 762, -3473, 763, -3559, 533, -3552, 533, -3419, 430, -3401, 430, -3268, 535, -3266, 535, -3089, 380, -3090, 381, -2871, 325, -2870, 324, -2813, 274, -2812, 273, -2594, 326, -2589, 326, -2482, 381, -2480, 381, -2252, 276, -2251, 277, -2189, 119, -2189, 117, -1388, -41, -1388)
 
 [node name="CollisionMiddle1_1" type="Area2D" parent="Collidable" groups=["Collidable"]]
 
@@ -835,13 +976,13 @@ polygon = PackedVector2Array(903, 189, 903, 322, 1028, 326, 1027, 189)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Collidable/CollisionMiddle1_25"]
 position = Vector2(-554, -1736)
-polygon = PackedVector2Array(902, 192, 902, 268, 1086, 265, 1087, 192)
+polygon = PackedVector2Array(904, 191, 904, 268, 1083, 266, 1084, 192)
 
 [node name="CollisionMiddle1_28" type="Area2D" parent="Collidable" groups=["Collidable"]]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Collidable/CollisionMiddle1_28"]
 position = Vector2(-441, -1945)
-polygon = PackedVector2Array(945, 270, 1079, 269, 1078, 192, 1024, 193, 1024, 132, 945, 131)
+polygon = PackedVector2Array(945, 270, 1076, 270, 1076, 192, 1024, 193, 1024, 132, 945, 131)
 
 [node name="CollisionMiddle1_44" type="Area2D" parent="Collidable" groups=["Collidable"]]
 
@@ -946,7 +1087,7 @@ polygon = PackedVector2Array(928, 153, 929, 94, 878, 92, 880, -8, 747, -11, 746,
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SlideSurfaces/SlidingSurface"]
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("8_81nn0")]
-position = Vector2(72, 432)
+position = Vector2(71, 430)
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 position = Vector2(31, -3)
@@ -995,6 +1136,9 @@ script = ExtResource("10_7fln2")
 position = Vector2(479, -3348)
 script = ExtResource("12_82b2h")
 
+[node name="GoldMelon" parent="Objects" instance=ExtResource("13_4rjct")]
+position = Vector2(1260, -802)
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_q3mu8")
 volume_db = -11.568
@@ -1020,7 +1164,7 @@ sprite_frames = SubResource("SpriteFrames_ux5xl")
 animation = &"collect"
 autoplay = "default"
 
-[node name="PointsLabel" type="Label" parent="GUI/Container"]
+[node name="PointsLabel1" type="Label" parent="GUI/Container"]
 unique_name_in_owner = true
 texture_filter = 1
 layout_mode = 1
@@ -1039,6 +1183,24 @@ theme_override_font_sizes/font_size = 24
 text = "x 0"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="AnimatedSprite2DGold" type="AnimatedSprite2D" parent="GUI/Container"]
+texture_filter = 1
+position = Vector2(136, 35)
+scale = Vector2(2.25, 2.25)
+sprite_frames = SubResource("SpriteFrames_s0kui")
+autoplay = "default"
+
+[node name="PointsLabel2" type="Label" parent="GUI/Container"]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 0
+offset_left = 169.0
+offset_top = 15.0
+offset_right = 209.0
+offset_bottom = 49.0
+theme_override_font_sizes/font_size = 24
+text = "X 0"
 
 [connection signal="body_entered" from="Objects/Melon1" to="Objects/Melon1" method="_on_body_entered"]
 [connection signal="body_entered" from="Objects/Melon2" to="Objects/Melon2" method="_on_body_entered"]
