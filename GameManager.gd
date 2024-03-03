@@ -1,8 +1,8 @@
 extends Node
 @onready var points_label_1 = %PointsLabel1
 @onready var points_label_2 = %PointsLabel2
-@onready var melon_2d = $"../GUI/Container/AnimatedSprite2D"
-@onready var gold_melon_2d = $"../GUI/Container/AnimatedSprite2DGold"
+@onready var melon_2d = $"../GUI/AnimatedSprite2D"
+@onready var gold_melon_2d = $"../GUI/AnimatedSprite2DGold"
 
 var points = 0
 var gold_points = 0

@@ -119,7 +119,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"collect",
-"speed": 9.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -190,6 +190,8 @@ position = Vector2(141, -44)
 scale = Vector2(3.25, 3.25)
 sprite_frames = SubResource("SpriteFrames_kvr4m")
 autoplay = "default"
+frame = 2
+frame_progress = 0.406833
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(141, -50)
