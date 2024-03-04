@@ -1133,7 +1133,7 @@ polygon = PackedVector2Array(834, 89, 834, 176, 909, 174, 907, 88)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Collidable/CollisionMiddle1_12"]
 position = Vector2(-671, -1143)
-polygon = PackedVector2Array(862, 112, 864, 168, 817, 164, 817, 199, 862, 196, 864, 325, 759, 320, 762, 339, 916, 352, 916, 407, 1043, 406, 1043, 352, 1150, 352, 1151, 165, 968, 166, 965, 221, 942, 219, 942, 116)
+polygon = PackedVector2Array(862, 112, 864, 168, 814, 164, 815, 198, 862, 196, 864, 325, 759, 320, 759, 341, 916, 352, 916, 407, 1043, 406, 1043, 352, 1150, 352, 1151, 165, 968, 166, 965, 221, 942, 219, 942, 116)
 
 [node name="CollisionMiddle1_3" type="Area2D" parent="Collidable" groups=["Collidable"]]
 
@@ -1365,7 +1365,7 @@ frame_progress = 0.669429
 
 [node name="AnimatedSprite2DGold" type="AnimatedSprite2D" parent="GUI"]
 texture_filter = 1
-position = Vector2(128, 129)
+position = Vector2(128, 136)
 scale = Vector2(2.25, 2.25)
 sprite_frames = SubResource("SpriteFrames_s0kui")
 autoplay = "default"
@@ -1374,15 +1374,15 @@ autoplay = "default"
 unique_name_in_owner = true
 texture_filter = 1
 offset_left = 61.0
-offset_top = 109.0
+offset_top = 116.0
 offset_right = 94.0
-offset_bottom = 143.0
+offset_bottom = 150.0
 theme_override_font_sizes/font_size = 24
 text = "x 0"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="GUI"]
 texture_filter = 1
-position = Vector2(27, 129)
+position = Vector2(27, 136)
 scale = Vector2(2.25, 2.25)
 sprite_frames = SubResource("SpriteFrames_ux5xl")
 autoplay = "default"
@@ -1391,9 +1391,9 @@ autoplay = "default"
 unique_name_in_owner = true
 texture_filter = 1
 offset_left = 161.0
-offset_top = 109.0
+offset_top = 116.0
 offset_right = 194.0
-offset_bottom = 143.0
+offset_bottom = 150.0
 theme_override_font_sizes/font_size = 24
 text = "x 0"
 horizontal_alignment = 1
