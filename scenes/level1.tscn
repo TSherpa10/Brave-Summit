@@ -697,7 +697,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 3.0
+"speed": 17.0
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2rqou"]
@@ -1346,7 +1346,7 @@ position = Vector2(1260, -802)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_q3mu8")
-volume_db = -11.568
+volume_db = -30.0
 autoplay = true
 
 [node name="GameManager" type="Node" parent="."]

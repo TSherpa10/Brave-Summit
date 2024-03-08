@@ -11,13 +11,14 @@ config_version=5
 [application]
 
 config/name="Brave Summit"
-run/main_scene="res://scenes/main_menu.tscn"
+run/main_scene="res://scenes/level0.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://icon.svg"
 
 [display]
 
-window/size/viewport_width=1250
+window/size/viewport_width=1280
+window/size/viewport_height=720
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
@@ -46,4 +47,4 @@ jump={
 [rendering]
 
 renderer/rendering_method="mobile"
-environment/defaults/default_clear_color=Color(0, 0, 0, 1)
+environment/defaults/default_clear_color=Color(0.129412, 0.121569, 0.188235, 1)
