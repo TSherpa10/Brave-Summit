@@ -73,8 +73,15 @@ func _physics_process(delta):
 			velocity.x = move_toward(velocity.x, 0, 100)
 
 	# Update animation.
-	if velocity.x > 1 || velocity.x < -1:
+	if is_on_floor() and (velocity.x > 1 || velocity.x < -1):
 		sprite_2d.animation = "running"
+	elif not is_on_floor():
+		if velocity.y > 0:
+			sprite_2d.animation = "jump_down"
+		else:
+			sprite_2d.animation = "jump_up"
+		if sprite_2d.frame == 1:
+			sprite_2d.frame = 1 # keep it at 1.
 	else:
 		sprite_2d.animation = "default"
 

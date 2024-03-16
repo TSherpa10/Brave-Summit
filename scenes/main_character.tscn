@@ -1,8 +1,10 @@
-[gd_scene load_steps=39 format=3 uid="uid://c2ff3xn2paa4k"]
+[gd_scene load_steps=45 format=3 uid="uid://c2ff3xn2paa4k"]
 
 [ext_resource type="Script" path="res://scenes/main_character.gd" id="1_gbt6h"]
 [ext_resource type="Texture2D" uid="uid://b6h8jmj27ix1u" path="res://pixel_assets/mc_idle.png" id="2_4o1h1"]
 [ext_resource type="Texture2D" uid="uid://dqtkgfnx4mwsj" path="res://pixel_assets/mc_run.png" id="3_7pnof"]
+[ext_resource type="Texture2D" uid="uid://bai70lfm7iqw1" path="res://pixel_assets/mc_jumpdown.png" id="3_h7dlm"]
+[ext_resource type="Texture2D" uid="uid://836ql72gai4l" path="res://pixel_assets/mc_jumpup.png" id="4_m464h"]
 [ext_resource type="Texture2D" uid="uid://ctr3kb6iyyr4u" path="res://pixel_assets/charge_bar.png" id="4_q812l"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ufilv"]
@@ -32,6 +34,22 @@ region = Rect2(0, 136, 37, 34)
 [sub_resource type="AtlasTexture" id="AtlasTexture_yq8ka"]
 atlas = ExtResource("2_4o1h1")
 region = Rect2(0, 170, 37, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7tmeb"]
+atlas = ExtResource("3_h7dlm")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ve5gg"]
+atlas = ExtResource("3_h7dlm")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gqkpf"]
+atlas = ExtResource("4_m464h")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kstjo"]
+atlas = ExtResource("4_m464h")
+region = Rect2(0, 32, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n6kr7"]
 atlas = ExtResource("3_7pnof")
@@ -97,6 +115,28 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7tmeb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ve5gg")
+}],
+"loop": true,
+"name": &"jump_down",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gqkpf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kstjo")
+}],
+"loop": true,
+"name": &"jump_up",
+"speed": 4.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -261,8 +301,8 @@ texture_filter = 1
 position = Vector2(33, -15)
 scale = Vector2(3.09375, 3.125)
 sprite_frames = SubResource("SpriteFrames_1g6ni")
+animation = &"jump_down"
 autoplay = "default"
-frame_progress = 0.981508
 
 [node name="ChargeBar" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true

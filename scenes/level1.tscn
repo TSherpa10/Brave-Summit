@@ -1,4 +1,4 @@
-[gd_scene load_steps=83 format=3 uid="uid://c0l2ao0p41nap"]
+[gd_scene load_steps=88 format=3 uid="uid://c0l2ao0p41nap"]
 
 [ext_resource type="Texture2D" uid="uid://kt6amyqg72bg" path="res://BG Image.png" id="1_b58vs"]
 [ext_resource type="Script" path="res://background.gd" id="2_mruue"]
@@ -8,16 +8,17 @@
 [ext_resource type="Texture2D" uid="uid://dmeifrwrvbpwq" path="res://Water Reflect Big 01.png" id="6_wopg5"]
 [ext_resource type="Texture2D" uid="uid://cxueyibgcwroj" path="res://Terrain (16x16).png" id="7_dlqly"]
 [ext_resource type="PackedScene" uid="uid://c2ff3xn2paa4k" path="res://scenes/main_character.tscn" id="8_81nn0"]
-[ext_resource type="PackedScene" uid="uid://c73tu7rygslk4" path="res://collect_melon.tscn" id="9_6skf6"]
-[ext_resource type="Script" path="res://collect_melon.gd" id="10_7fln2"]
+[ext_resource type="PackedScene" uid="uid://c73tu7rygslk4" path="res://scenes/collect_melon.tscn" id="9_6skf6"]
+[ext_resource type="Script" path="res://scenes/collect_melon.gd" id="10_7fln2"]
 [ext_resource type="PackedScene" uid="uid://duofhf5347ka2" path="res://scenes/goal.tscn" id="11_8fywv"]
 [ext_resource type="Script" path="res://scenes/goal.gd" id="12_82b2h"]
 [ext_resource type="PackedScene" uid="uid://s4o1mtvyi47w" path="res://scenes/gold_melon.tscn" id="13_4rjct"]
-[ext_resource type="AudioStream" uid="uid://d0foscf827gq6" path="res://Overworld Theme.wav" id="13_q3mu8"]
 [ext_resource type="Script" path="res://GameManager.gd" id="14_g2576"]
+[ext_resource type="AudioStream" uid="uid://bx2brnmxagait" path="res://level1music.ogg" id="14_ic5rq"]
 [ext_resource type="Texture2D" uid="uid://chjhbmjyy1iif" path="res://Melon.png" id="15_6a08m"]
 [ext_resource type="Texture2D" uid="uid://c1suiaujipefc" path="res://pixel_assets/Golden Melon.png" id="15_tufh2"]
 [ext_resource type="Texture2D" uid="uid://dtvc1b0wf44ea" path="res://pixel_assets/melonbar.png" id="16_q1r88"]
+[ext_resource type="FontFile" uid="uid://dpj884bhb3bv8" path="res://hf-free-complete/equipment-pro-v1.1/EquipmentPro.ttf" id="18_vw2ou"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_76fua"]
 texture = ExtResource("7_dlqly")
@@ -496,204 +497,232 @@ texture = ExtResource("7_dlqly")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_76fua")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_jync8"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_72784"]
 atlas = ExtResource("16_q1r88")
 region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vcbub"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_6yvr2"]
 atlas = ExtResource("16_q1r88")
 region = Rect2(32, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_yp8u6"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_tja4v"]
 atlas = ExtResource("16_q1r88")
 region = Rect2(64, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1vkeo"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_eynev"]
 atlas = ExtResource("16_q1r88")
 region = Rect2(96, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_y2r8y"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_c0nmt"]
 atlas = ExtResource("16_q1r88")
 region = Rect2(128, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_0twlr"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_u7gdq"]
 atlas = ExtResource("16_q1r88")
 region = Rect2(160, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_kynkp"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_cxud4"]
 atlas = ExtResource("16_q1r88")
 region = Rect2(192, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_els6g"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_1tllv"]
 atlas = ExtResource("16_q1r88")
 region = Rect2(224, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_sq4t1"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_d7587"]
 atlas = ExtResource("16_q1r88")
 region = Rect2(256, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_bpmqw"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_1xy3h"]
 atlas = ExtResource("16_q1r88")
 region = Rect2(288, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_6rway"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_e88qm"]
 atlas = ExtResource("16_q1r88")
 region = Rect2(320, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_noo7j"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_p4jid"]
 atlas = ExtResource("16_q1r88")
 region = Rect2(352, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_jmjl6"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_c88mp"]
 atlas = ExtResource("16_q1r88")
 region = Rect2(384, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5notk"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ef46d"]
 atlas = ExtResource("16_q1r88")
 region = Rect2(416, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_00hgs"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ehrol"]
 atlas = ExtResource("16_q1r88")
 region = Rect2(448, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5ksdb"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_v4v0j"]
 atlas = ExtResource("16_q1r88")
 region = Rect2(480, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_0dykn"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_88bml"]
 atlas = ExtResource("16_q1r88")
 region = Rect2(512, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_0b8r8"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_if7u0"]
 atlas = ExtResource("16_q1r88")
 region = Rect2(544, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_cdwh7"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_bn4n4"]
 atlas = ExtResource("16_q1r88")
 region = Rect2(576, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_g4k4l"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_iihmn"]
 atlas = ExtResource("16_q1r88")
 region = Rect2(608, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_d57u1"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_e8r6p"]
 atlas = ExtResource("16_q1r88")
 region = Rect2(640, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_625jo"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_psccg"]
 atlas = ExtResource("16_q1r88")
 region = Rect2(672, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_gakn8"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_vvbmc"]
 atlas = ExtResource("16_q1r88")
 region = Rect2(704, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ir16w"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_12i7f"]
 atlas = ExtResource("16_q1r88")
 region = Rect2(736, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_oamce"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_hl4lg"]
 atlas = ExtResource("16_q1r88")
 region = Rect2(768, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ss4tu"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_e47oc"]
 atlas = ExtResource("16_q1r88")
 region = Rect2(800, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_tyhkv"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_3npbs"]
 atlas = ExtResource("16_q1r88")
 region = Rect2(832, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ki1qb"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_5lk06"]
 atlas = ExtResource("16_q1r88")
 region = Rect2(864, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vulix"]
+atlas = ExtResource("16_q1r88")
+region = Rect2(896, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kgx6n"]
+atlas = ExtResource("16_q1r88")
+region = Rect2(928, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4idjq"]
+atlas = ExtResource("16_q1r88")
+region = Rect2(960, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a3ytv"]
+atlas = ExtResource("16_q1r88")
+region = Rect2(992, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_lmbdb"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_jync8")
+"texture": SubResource("AtlasTexture_72784")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_vcbub")
+"texture": SubResource("AtlasTexture_6yvr2")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_yp8u6")
+"texture": SubResource("AtlasTexture_tja4v")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_1vkeo")
+"texture": SubResource("AtlasTexture_eynev")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_y2r8y")
+"texture": SubResource("AtlasTexture_c0nmt")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_0twlr")
+"texture": SubResource("AtlasTexture_u7gdq")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_kynkp")
+"texture": SubResource("AtlasTexture_cxud4")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_els6g")
+"texture": SubResource("AtlasTexture_1tllv")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_sq4t1")
+"texture": SubResource("AtlasTexture_d7587")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_bpmqw")
+"texture": SubResource("AtlasTexture_1xy3h")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_6rway")
+"texture": SubResource("AtlasTexture_e88qm")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_noo7j")
+"texture": SubResource("AtlasTexture_p4jid")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_jmjl6")
+"texture": SubResource("AtlasTexture_c88mp")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_5notk")
+"texture": SubResource("AtlasTexture_ef46d")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_00hgs")
+"texture": SubResource("AtlasTexture_ehrol")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_5ksdb")
+"texture": SubResource("AtlasTexture_v4v0j")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_0dykn")
+"texture": SubResource("AtlasTexture_88bml")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_0b8r8")
+"texture": SubResource("AtlasTexture_if7u0")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_cdwh7")
+"texture": SubResource("AtlasTexture_bn4n4")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_g4k4l")
+"texture": SubResource("AtlasTexture_iihmn")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_d57u1")
+"texture": SubResource("AtlasTexture_e8r6p")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_625jo")
+"texture": SubResource("AtlasTexture_psccg")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_gakn8")
+"texture": SubResource("AtlasTexture_vvbmc")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ir16w")
+"texture": SubResource("AtlasTexture_12i7f")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_oamce")
+"texture": SubResource("AtlasTexture_hl4lg")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ss4tu")
+"texture": SubResource("AtlasTexture_e47oc")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_tyhkv")
+"texture": SubResource("AtlasTexture_3npbs")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ki1qb")
+"texture": SubResource("AtlasTexture_5lk06")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vulix")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kgx6n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4idjq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a3ytv")
 }],
 "loop": true,
 "name": &"default",
@@ -1014,13 +1043,13 @@ layer_0/tile_data = PackedInt32Array(589824, 524288, 5, 655360, 524288, 5, 58982
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Collidable/CollisionEdges"]
 position = Vector2(1, 7)
 build_mode = 1
-polygon = PackedVector2Array(-39, 9, 119, 6, 119, 59, 169, 60, 168, 108, 224, 110, 225, 290, 67, 288, 67, 470, 168, 470, 168, 574, 450, 568, 450, 422, 637, 422, 636, 576, 1123, 580, 1123, 267, 1437, 267, 1436, -408, 1490, -412, 1489, -642, 1438, -644, 1439, -1217, 1361, -1241, 1363, -1064, 1285, -1061, 1284, -1535, 973, -1528, 974, -1580, 918, -1583, 918, -1763, 1000, -1762, 1000, -1717, 1049, -1716, 1051, -1661, 1542, -1663, 1550, -647, 1555, 684, -327, 699, -330, -1390, -324, -3895, 1623, -3904, 1614, -2543, 1622, -1678, 1434, -1663, 1436, -1785, 1386, -1783, 1389, -2107, 1335, -2106, 1335, -2131, 1437, -2131, 1437, -2460, 1337, -2459, 1337, -2595, 1490, -2594, 1489, -3342, 1437, -3342, 1437, -3397, 1284, -3394, 1285, -3498, 1258, -3498, 1258, -3446, 1076, -3445, 1075, -3499, 1000, -3498, 999, -3450, 946, -3450, 946, -3399, 762, -3473, 763, -3559, 533, -3552, 533, -3419, 430, -3401, 430, -3268, 535, -3266, 535, -3089, 380, -3090, 381, -2871, 325, -2870, 324, -2813, 274, -2812, 273, -2594, 326, -2589, 326, -2482, 381, -2480, 381, -2252, 276, -2251, 277, -2189, 119, -2189, 117, -1388, -41, -1388)
+polygon = PackedVector2Array(-39, 9, 119, 6, 119, 59, 169, 60, 168, 108, 224, 110, 225, 290, 67, 288, 67, 470, 168, 470, 168, 574, 450, 568, 450, 422, 637, 422, 636, 576, 1123, 580, 1123, 267, 1437, 267, 1436, -408, 1490, -412, 1489, -642, 1438, -644, 1439, -1217, 1361, -1241, 1363, -1064, 1285, -1061, 1284, -1535, 973, -1528, 974, -1580, 918, -1583, 918, -1763, 1000, -1762, 1000, -1717, 1049, -1716, 1051, -1661, 1542, -1663, 1550, -647, 1555, 684, -327, 699, -330, -1390, -324, -3895, 1623, -3904, 1614, -2543, 1622, -1678, 1434, -1663, 1436, -1785, 1386, -1783, 1390, -2127, 1337, -2127, 1335, -2138, 1436, -2137, 1437, -2460, 1337, -2459, 1337, -2595, 1490, -2594, 1489, -3342, 1437, -3342, 1437, -3397, 1284, -3394, 1285, -3498, 1258, -3498, 1258, -3446, 1076, -3445, 1075, -3499, 1000, -3498, 999, -3450, 946, -3450, 946, -3399, 762, -3473, 763, -3559, 533, -3552, 533, -3419, 430, -3401, 430, -3268, 535, -3266, 535, -3089, 380, -3090, 381, -2871, 325, -2870, 324, -2813, 274, -2812, 273, -2594, 326, -2589, 326, -2482, 381, -2480, 381, -2252, 276, -2251, 277, -2189, 119, -2189, 117, -1388, -41, -1388)
 
 [node name="CollisionMiddle1_1" type="Area2D" parent="Collidable" groups=["Collidable"]]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Collidable/CollisionMiddle1_1"]
 position = Vector2(418, 363)
-polygon = PackedVector2Array(398, 13, 398, 102, 634, 103, 632, 12)
+polygon = PackedVector2Array(398, 13, 397, 95, 633, 97, 632, 12)
 
 [node name="CollisionMiddle1_2" type="Area2D" parent="Collidable" groups=["Collidable"]]
 
@@ -1048,67 +1077,67 @@ polygon = PackedVector2Array(813, 115, 813, 199, 921, 199, 920, 254, 1048, 252, 
 [node name="CollisionMiddle1_16" type="Area2D" parent="Collidable" groups=["Collidable"]]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Collidable/CollisionMiddle1_16"]
-position = Vector2(-310, -1187)
+position = Vector2(-311, -1192)
 polygon = PackedVector2Array(818, 155, 818, 166, 943, 166, 943, 154)
 
 [node name="CollisionMiddle1_17" type="Area2D" parent="Collidable" groups=["Collidable"]]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Collidable/CollisionMiddle1_17"]
-position = Vector2(-26, -1189)
+position = Vector2(-26, -1194)
 polygon = PackedVector2Array(839, 155, 841, 167, 919, 167, 920, 155)
 
 [node name="CollisionMiddle1_18" type="Area2D" parent="Collidable" groups=["Collidable"]]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Collidable/CollisionMiddle1_18"]
-position = Vector2(-76, -1396)
+position = Vector2(-76, -1403)
 polygon = PackedVector2Array(839, 155, 839, 165, 921, 165, 920, 155)
 
 [node name="CollisionMiddle1_29" type="Area2D" parent="Collidable" groups=["Collidable"]]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Collidable/CollisionMiddle1_29"]
-position = Vector2(-128, -1865)
+position = Vector2(-128, -1871)
 polygon = PackedVector2Array(842, 155, 842, 166, 920, 166, 920, 155)
 
 [node name="CollisionMiddle1_40" type="Area2D" parent="Collidable" groups=["Collidable"]]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Collidable/CollisionMiddle1_40"]
-position = Vector2(288, -3477)
+position = Vector2(288, -3483)
 polygon = PackedVector2Array(842, 155, 843, 165, 920, 165, 920, 155)
 
 [node name="CollisionMiddle1_41" type="Area2D" parent="Collidable" groups=["Collidable"]]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Collidable/CollisionMiddle1_41"]
-position = Vector2(-77, -3423)
+position = Vector2(-77, -3430)
 polygon = PackedVector2Array(842, 155, 843, 164, 920, 163, 921, 154)
 
 [node name="CollisionMiddle1_43" type="Area2D" parent="Collidable" groups=["Collidable"]]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Collidable/CollisionMiddle1_43"]
-position = Vector2(-233, -3528)
+position = Vector2(-233, -3535)
 polygon = PackedVector2Array(842, 155, 841, 165, 920, 164, 920, 155)
 
 [node name="CollisionMiddle1_45" type="Area2D" parent="Collidable" groups=["Collidable"]]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Collidable/CollisionMiddle1_45"]
-position = Vector2(-340, -3424)
+position = Vector2(-340, -3431)
 polygon = PackedVector2Array(842, 155, 841, 163, 920, 163, 920, 155)
 
 [node name="CollisionMiddle1_42" type="Area2D" parent="Collidable" groups=["Collidable"]]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Collidable/CollisionMiddle1_42"]
-position = Vector2(80, -3424)
+position = Vector2(79, -3431)
 polygon = PackedVector2Array(842, 155, 842, 165, 920, 164, 920, 155)
 
 [node name="CollisionMiddle1_21" type="Area2D" parent="Collidable" groups=["Collidable"]]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Collidable/CollisionMiddle1_21"]
-position = Vector2(237, -1559)
+position = Vector2(237, -1565)
 polygon = PackedVector2Array(839, 162, 839, 173, 971, 172, 971, 161)
 
 [node name="CollisionMiddle1_30" type="Area2D" parent="Collidable" groups=["Collidable"]]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Collidable/CollisionMiddle1_30"]
-position = Vector2(289, -2126)
+position = Vector2(289, -2131)
 polygon = PackedVector2Array(839, 155, 838, 167, 972, 167, 971, 155)
 
 [node name="CollisionMiddle1_15" type="Area2D" parent="Collidable" groups=["Collidable"]]
@@ -1139,31 +1168,31 @@ polygon = PackedVector2Array(862, 112, 864, 168, 814, 164, 815, 198, 862, 196, 8
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Collidable/CollisionMiddle1_3"]
 position = Vector2(-417, -102)
-polygon = PackedVector2Array(813, 111, 814, 207, 1006, 207, 1005, 113)
+polygon = PackedVector2Array(813, 111, 813, 195, 1007, 195, 1005, 113)
 
 [node name="CollisionMiddle1_4" type="Area2D" parent="Collidable" groups=["Collidable"]]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Collidable/CollisionMiddle1_4"]
-position = Vector2(-422, -405)
-polygon = PackedVector2Array(822, 153, 822, 166, 1004, 165, 1005, 152)
+position = Vector2(-422, -411)
+polygon = PackedVector2Array(822, 153, 822, 165, 1004, 165, 1005, 152)
 
 [node name="CollisionMiddle1_10" type="Area2D" parent="Collidable" groups=["Collidable"]]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Collidable/CollisionMiddle1_10"]
 position = Vector2(103, -717)
-polygon = PackedVector2Array(817, 152, 816, 163, 1050, 164, 1051, 103, 977, 102, 976, 152)
+polygon = PackedVector2Array(815, 146, 815, 158, 1050, 160, 1051, 103, 977, 102, 977, 146)
 
 [node name="CollisionMiddle1_5" type="Area2D" parent="Collidable" groups=["Collidable"]]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Collidable/CollisionMiddle1_5"]
-position = Vector2(-187, -406)
-polygon = PackedVector2Array(851, 153, 849, 167, 974, 167, 975, 153)
+position = Vector2(-186, -412)
+polygon = PackedVector2Array(851, 153, 851, 166, 974, 165, 975, 153)
 
 [node name="CollisionMiddle1_6" type="Area2D" parent="Collidable" groups=["Collidable"]]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Collidable/CollisionMiddle1_6"]
 position = Vector2(72, -354)
-polygon = PackedVector2Array(854, 154, 854, 168, 897, 168, 898, 346, 1033, 344, 1032, 154)
+polygon = PackedVector2Array(853, 148, 853, 159, 901, 158, 898, 346, 1033, 344, 1032, 149)
 
 [node name="CollisionMiddle1_9" type="Area2D" parent="Collidable" groups=["Collidable"]]
 
@@ -1346,8 +1375,8 @@ script = ExtResource("12_82b2h")
 position = Vector2(1260, -802)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("13_q3mu8")
-volume_db = -30.0
+stream = ExtResource("14_ic5rq")
+volume_db = -15.0
 autoplay = true
 
 [node name="GameManager" type="Node" parent="."]
@@ -1378,8 +1407,9 @@ offset_left = 61.0
 offset_top = 116.0
 offset_right = 94.0
 offset_bottom = 150.0
-theme_override_font_sizes/font_size = 24
-text = "x 0"
+theme_override_fonts/font = ExtResource("18_vw2ou")
+theme_override_font_sizes/font_size = 40
+text = "x0"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="GUI"]
 texture_filter = 1
@@ -1395,8 +1425,9 @@ offset_left = 161.0
 offset_top = 116.0
 offset_right = 194.0
 offset_bottom = 150.0
-theme_override_font_sizes/font_size = 24
-text = "x 0"
+theme_override_fonts/font = ExtResource("18_vw2ou")
+theme_override_font_sizes/font_size = 40
+text = "x0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
