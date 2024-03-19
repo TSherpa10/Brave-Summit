@@ -1,9 +1,11 @@
-[gd_scene load_steps=76 format=3 uid="uid://di0rjt0bm1ynh"]
+[gd_scene load_steps=78 format=3 uid="uid://di0rjt0bm1ynh"]
 
 [ext_resource type="Texture2D" uid="uid://bsnb1h7eprwru" path="res://Summer2.png" id="1_7a76f"]
 [ext_resource type="Script" path="res://background.gd" id="2_kfxol"]
 [ext_resource type="PackedScene" uid="uid://c73tu7rygslk4" path="res://scenes/collect_melon.tscn" id="5_fpr5g"]
 [ext_resource type="Script" path="res://scenes/collect_melon.gd" id="6_fq0mu"]
+[ext_resource type="AudioStream" uid="uid://d0foscf827gq6" path="res://Overworld Theme.wav" id="7_5l2o8"]
+[ext_resource type="FontFile" uid="uid://d06lgpopah71s" path="res://hf-free-complete/matchup-pro-v1.1/MatchupPro.ttf" id="7_cb1kf"]
 [ext_resource type="Texture2D" uid="uid://cxueyibgcwroj" path="res://Terrain (16x16).png" id="7_yxkm1"]
 [ext_resource type="PackedScene" uid="uid://c2ff3xn2paa4k" path="res://scenes/main_character.tscn" id="8_hvfni"]
 [ext_resource type="FontFile" uid="uid://dpj884bhb3bv8" path="res://hf-free-complete/equipment-pro-v1.1/EquipmentPro.ttf" id="11_tbg4y"]
@@ -757,7 +759,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 17.0
+"speed": 12.0
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2rqou"]
@@ -1132,7 +1134,7 @@ polygon = PackedVector2Array(2921, -501, 2792, -501, 2793, -517, 2921, -517)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Collidable/C19"]
 position = Vector2(-1196, 859)
-polygon = PackedVector2Array(2920, -501, 2796, -501, 2795, -589, 2920, -588)
+polygon = PackedVector2Array(2923, -507, 2792, -506, 2792, -589, 2922, -588)
 
 [node name="C23" type="Area2D" parent="Collidable"]
 
@@ -1156,7 +1158,7 @@ polygon = PackedVector2Array(2921, -501, 2791, -500, 2790, -588, 2922, -588)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Collidable/C28"]
 position = Vector2(-1556, -1170)
-polygon = PackedVector2Array(2921, -501, 2791, -500, 2790, -588, 2922, -588)
+polygon = PackedVector2Array(2920, -514, 2789, -515, 2790, -588, 2922, -588)
 
 [node name="C31" type="Area2D" parent="Collidable"]
 
@@ -1180,13 +1182,13 @@ polygon = PackedVector2Array(2921, -501, 2790, -500, 2791, -642, 2922, -639)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Collidable/C29"]
 position = Vector2(-1140, -1170)
-polygon = PackedVector2Array(2921, -501, 2791, -500, 2790, -588, 2922, -588)
+polygon = PackedVector2Array(2920, -524, 2790, -524, 2790, -588, 2922, -588)
 
 [node name="C30" type="Area2D" parent="Collidable"]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Collidable/C30"]
 position = Vector2(-1349, -1274)
-polygon = PackedVector2Array(2922, -501, 2791, -500, 2790, -588, 2922, -588)
+polygon = PackedVector2Array(2921, -520, 2790, -522, 2790, -588, 2922, -588)
 
 [node name="C27" type="Area2D" parent="Collidable"]
 
@@ -1222,7 +1224,7 @@ polygon = PackedVector2Array(2897, -502, 2822, -502, 2822, -648, 2950, -649, 295
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Collidable/C20"]
 position = Vector2(-1430, 911)
-polygon = PackedVector2Array(2948, -500, 2767, -500, 2767, -589, 2949, -588)
+polygon = PackedVector2Array(2948, -505, 2767, -505, 2767, -589, 2949, -588)
 
 [node name="C21" type="Area2D" parent="Collidable"]
 
@@ -1296,11 +1298,65 @@ position_smoothing_speed = 8.0
 [node name="Objects" type="Node" parent="."]
 
 [node name="Melon1" parent="Objects" instance=ExtResource("5_fpr5g")]
-position = Vector2(857, 186)
+position = Vector2(1429, 290)
 script = ExtResource("6_fq0mu")
 
+[node name="Label" type="Label" parent="Objects"]
+texture_filter = 1
+offset_left = 22.0
+offset_top = 265.0
+offset_right = 451.0
+offset_bottom = 324.0
+tooltip_text = "Testing!
+"
+mouse_filter = 0
+theme_override_fonts/font = ExtResource("7_cb1kf")
+theme_override_font_sizes/font_size = 34
+text = "Press A/D or arrow keys to move. 
+Press SPACE to Jump."
+
+[node name="Label2" type="Label" parent="Objects"]
+texture_filter = 1
+offset_left = 612.0
+offset_top = 74.0
+offset_right = 1041.0
+offset_bottom = 133.0
+tooltip_text = "Testing!
+"
+theme_override_fonts/font = ExtResource("7_cb1kf")
+theme_override_font_sizes/font_size = 34
+text = "Tap SPACE for small jumps.
+Hold SPACE for big jumps."
+
+[node name="Label4" type="Label" parent="Objects"]
+texture_filter = 1
+offset_left = 2304.0
+offset_top = 205.0
+offset_right = 2576.0
+offset_bottom = 264.0
+tooltip_text = "Testing!
+"
+theme_override_fonts/font = ExtResource("7_cb1kf")
+theme_override_font_sizes/font_size = 34
+text = "Now climb to the top!
+"
+
+[node name="Label3" type="Label" parent="Objects"]
+texture_filter = 1
+offset_left = 1334.0
+offset_top = 196.0
+offset_right = 1519.0
+offset_bottom = 255.0
+tooltip_text = "Testing!
+"
+theme_override_fonts/font = ExtResource("7_cb1kf")
+theme_override_font_sizes/font_size = 34
+text = "Look, a melon!
+"
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-volume_db = -20.0
+stream = ExtResource("7_5l2o8")
+volume_db = -15.0
 autoplay = true
 
 [node name="GameManager" type="Node" parent="."]
@@ -1311,7 +1367,7 @@ script = ExtResource("15_l8cs7")
 
 [node name="MelonBar" type="AnimatedSprite2D" parent="GUI"]
 texture_filter = 1
-position = Vector2(136, 132.5)
+position = Vector2(136, 133)
 scale = Vector2(8.5, 8.5)
 sprite_frames = SubResource("SpriteFrames_lmbdb")
 autoplay = "default"

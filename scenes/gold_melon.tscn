@@ -189,7 +189,6 @@ texture_filter = 1
 position = Vector2(141, -44)
 scale = Vector2(3.25, 3.25)
 sprite_frames = SubResource("SpriteFrames_kvr4m")
-animation = &"collect"
 autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
