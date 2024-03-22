@@ -301,7 +301,6 @@ texture_filter = 1
 position = Vector2(33, -15)
 scale = Vector2(3.09375, 3.125)
 sprite_frames = SubResource("SpriteFrames_1g6ni")
-animation = &"jump_down"
 autoplay = "default"
 
 [node name="ChargeBar" type="AnimatedSprite2D" parent="."]

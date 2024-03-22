@@ -1,25 +1,55 @@
 extends CharacterBody2D
+
+# Constants
 const SPEED = 450.0
 const JUMP_VELOCITY = -200.0
 const MAX_JUMP_CHARGE_TIME = 0.8 # Maximum time in seconds for charging the jump
 const JUMP_FORCE_INCREMENT = -600  # Additional jump force added per second of charge
 const BOUNCE_FACTOR = 0.4  # Adjust this value for the desired bounce effect
 var SPEED_CAP = 1
-@onready var sprite_2d = $AnimatedSprite2D
+
+# Jump variables.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var jump_charge_duration = 0.0
 var is_charging_jump = false
-var incapacitated = false  # New variable to track incapacitation state
+
+# Bouncing off walls base variables.
+var incapacitated = false
 var bouncing = false
 var bounce_velocity = -100
+
+# Sliding variables:
+var slide_exited = false
+var sliding = false
+var slide_direction = Vector2.ZERO
+var slide_velocity = Vector2.ZERO
+var slide_acceleration = 400.0
+var max_slide_speed = 1000.0
+
+# Player Sprite + Area2Ds + ChargeBar
+@onready var sprite_2d = $AnimatedSprite2D
 @onready var collidable = get_node("../Collidable")
+@onready var slide_surfaces = get_node("../SlideSurfaces")
 @onready var charge_bar = %ChargeBar
 
 func _ready():
 	# Connect the area_entered signal from each Area2D to this character script.
-	for area in collidable.get_children():
-		if area is Area2D:
-			area.connect("body_entered", Callable(self, "_on_body_entered"))
+	if collidable:
+		for area in collidable.get_children():
+			if area is Area2D:
+				area.connect("body_entered", Callable(self, "_on_wall_entered"))
+	if slide_surfaces:
+		for area in slide_surfaces.get_children():
+			if area is Area2D:
+				var slope_type = "normal"  # Default value
+				if area.name.begins_with("Gentle"):
+					slope_type = "gentle"
+				elif area.name.begins_with("Steep"):
+					slope_type = "steep"
+				var callable1 = Callable(self, "_on_slide_surface_entered").bind(slope_type)
+				var callable2 = Callable(self, "_on_slide_surface_exited")
+				area.connect("body_entered", callable1)
+				area.connect("body_exited", callable2)
 	charge_bar.visible = false
 
 func _physics_process(delta):
@@ -32,10 +62,25 @@ func _physics_process(delta):
 	else:
 		# Reset vertical velocity when on the ground.
 		velocity.y = 0
-		if incapacitated:
+		if incapacitated and velocity.x == 0 and not sliding: # velocity.x > 0 and on floor when sliding, need to check this.
 			# Reset incapacitation state if on the floor
 			incapacitated = false
-	# Handle jump charging
+	
+	# Handle Sliding Logic
+	if sliding:
+		if not slide_exited:
+			slide_velocity += slide_direction * slide_acceleration * delta
+			if slide_velocity.length() > max_slide_speed:
+				slide_velocity = slide_velocity.normalized() * max_slide_speed
+			velocity.x = slide_velocity.x
+			velocity.y = 1000
+		else:
+			if is_on_floor():
+				incapacitated = false
+				sliding = false
+				velocity.x = 0
+	
+	# Handle Jump Charging	
 	if not incapacitated and Input.is_action_pressed("jump") and is_on_floor():
 		# play charge jump animation.
 		charge_bar.visible = true
@@ -87,12 +132,33 @@ func _physics_process(delta):
 
 	move_and_slide()
 
-func _on_body_entered(body):
+func _on_wall_entered(body):
 	if body == self and not is_on_floor() and abs(velocity.x) > 1:
 		bounce_velocity = -velocity.x * BOUNCE_FACTOR
 		incapacitated = true
 		bouncing = true
+		
+func _on_slide_surface_entered(body, slope_type):
+	if body == self and is_on_floor():
+		# slide logic
+		incapacitated = true
+		sliding = true
+		slide_exited = false
+		
+		var slide_surface_normal = Vector2.ZERO
+		match slope_type:
+			"gentle":
+				slide_surface_normal = Vector2(cos(deg_to_rad(112.5)), sin(deg_to_rad(112.5)))
+			"steep":
+				slide_surface_normal = Vector2(cos(deg_to_rad(157.5)), sin(deg_to_rad(157.5)))
+			_:
+				slide_surface_normal = Vector2(cos(deg_to_rad(135)), sin(deg_to_rad(135)))
+		slide_direction = Vector2(slide_surface_normal.y, -slide_surface_normal.x).normalized()
+		slide_velocity = slide_direction * slide_acceleration
 
+func _on_slide_surface_exited(body):
+	if body == self:
+		slide_exited = true
 
 func _on_charge_bar_animation_finished():
 	# when the animation finishes, pause at last frame.

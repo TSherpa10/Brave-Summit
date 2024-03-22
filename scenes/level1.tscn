@@ -1316,10 +1316,6 @@ polygon = PackedVector2Array(928, 153, 929, 94, 878, 92, 880, -8, 747, -11, 746,
 
 [node name="SlideSurfaces" type="Node" parent="."]
 
-[node name="SlidingSurface" type="Area2D" parent="SlideSurfaces"]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SlideSurfaces/SlidingSurface"]
-
 [node name="CharacterBody2D" parent="." instance=ExtResource("8_81nn0")]
 position = Vector2(70, 430)
 
