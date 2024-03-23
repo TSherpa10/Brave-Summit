@@ -25,11 +25,13 @@ var slide_direction = Vector2.ZERO
 var slide_velocity = Vector2.ZERO
 var slide_acceleration = 400.0
 var max_slide_speed = 1000.0
+var on_ice = false
 
 # Player Sprite + Area2Ds + ChargeBar
 @onready var sprite_2d = $AnimatedSprite2D
 @onready var collidable = get_node("../Collidable")
 @onready var slide_surfaces = get_node("../SlideSurfaces")
+@onready var special_blocks = get_node("../SpecialBlocks")
 @onready var charge_bar = %ChargeBar
 
 func _ready():
@@ -46,8 +48,17 @@ func _ready():
 					slope_type = "gentle"
 				elif area.name.begins_with("Steep"):
 					slope_type = "steep"
-				var callable1 = Callable(self, "_on_slide_surface_entered").bind(slope_type)
+				var orientation = "right" if area.name.ends_with("Right") else "left"
+				var callable1 = Callable(self, "_on_slide_surface_entered").bind(slope_type, orientation)
 				var callable2 = Callable(self, "_on_slide_surface_exited")
+				area.connect("body_entered", callable1)
+				area.connect("body_exited", callable2)
+	if special_blocks:
+		for area in special_blocks.get_children():
+			if area is Area2D:
+				var block_type = "ice" # for now.
+				var callable1 = Callable(self, "_on_block_entered").bind(block_type)
+				var callable2 = Callable(self, "_on_block_exited").bind(block_type)
 				area.connect("body_entered", callable1)
 				area.connect("body_exited", callable2)
 	charge_bar.visible = false
@@ -73,7 +84,7 @@ func _physics_process(delta):
 			if slide_velocity.length() > max_slide_speed:
 				slide_velocity = slide_velocity.normalized() * max_slide_speed
 			velocity.x = slide_velocity.x
-			velocity.y = 1000
+			velocity.y = 600
 		else:
 			if is_on_floor():
 				incapacitated = false
@@ -115,7 +126,10 @@ func _physics_process(delta):
 				SPEED_CAP = 1.0
 			velocity.x = direction * SPEED * SPEED_CAP
 		else:
-			velocity.x = move_toward(velocity.x, 0, 100)
+			if not on_ice:
+				velocity.x = move_toward(velocity.x, 0, 100)
+			else:
+				velocity.x = move_toward(velocity.x, 0, 3)
 
 	# Update animation.
 	if is_on_floor() and (velocity.x > 1 || velocity.x < -1):
@@ -138,7 +152,7 @@ func _on_wall_entered(body):
 		incapacitated = true
 		bouncing = true
 		
-func _on_slide_surface_entered(body, slope_type):
+func _on_slide_surface_entered(body, slope_type, orientation):
 	if body == self and is_on_floor():
 		# slide logic
 		incapacitated = true
@@ -153,12 +167,21 @@ func _on_slide_surface_entered(body, slope_type):
 				slide_surface_normal = Vector2(cos(deg_to_rad(157.5)), sin(deg_to_rad(157.5)))
 			_:
 				slide_surface_normal = Vector2(cos(deg_to_rad(135)), sin(deg_to_rad(135)))
+		slide_surface_normal.y = slide_surface_normal.y if orientation == "left" else -slide_surface_normal.y
 		slide_direction = Vector2(slide_surface_normal.y, -slide_surface_normal.x).normalized()
 		slide_velocity = slide_direction * slide_acceleration
 
 func _on_slide_surface_exited(body):
 	if body == self:
 		slide_exited = true
+		
+func _on_block_entered(body, block_type):
+	if is_on_floor() and block_type == "ice":
+		on_ice = true
+		
+func _on_block_exited(body, block_type):
+	if block_type == "ice":
+		on_ice = false
 
 func _on_charge_bar_animation_finished():
 	# when the animation finishes, pause at last frame.
